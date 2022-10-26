@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+    /* Comienzo del desarrollo del diseño para moviles */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "nav" "organize" "main" "footer";
+    height: 100vh;
+}
+
+    /* Comienzo del nav y su menu */
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background: #00579c;
+    color: #fff;
+    height: 100%;
+    padding: 0 10px 0 10px;
+    grid-area: nav;
+}
+
+.distribution {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.distribution p {
+    padding-left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.nav i {
+    font-size: 20px;
+}
+
+.tablet-menu {
+    display: none;
+}
+
+.tablet-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+.tablet-menu a:hover {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+.nav .little-menu {
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+    /* Comienzo de la seccion buscar */
+.organize {
+    background: #e2e2e2;
+    padding: 1px 0 7px 0;
+    grid-area: organize;
+    height: 100%;
+}
+
+.organize .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.organize .search p {
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.organize .search select {
+    width: 50%;
+}
+
+    /* Comienzo de la seccion de fotos */
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.cards {
+    overflow: auto;
+    text-align: center;
+}
+
+.main .card img {
+    width: 70%;
+}
+
+.main .card {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 10px 10px 0 10px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.main .card .info p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main .card .info button {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #00579c;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .card .info button:hover {
+    background-color: rgba(0, 87, 156, 0.9);
+}
+
+    /* Comienzo de seleccion de paginas */
+.flex-boxes {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.flex-boxes div {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    color: #0e6efd;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.flex-boxes div:hover {
+    background-color: #0e6efd;
+    color: #fff;
+}
+
+    /* Comienzo del footer */
+.footer {
+    background: #012f6b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: footer;
+}
+
+.footer .footer-icons {
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.footer .footer-icons i {
+    cursor: pointer;
+}
+
+.footer .footer-item {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+}
+    /* Comienzo de media queries para tablets */
+@media (min-width: 576px) {
+    .container {
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: 
+            "nav nav"
+            "organize main"
+            "footer footer";
+    }
+
+    .nav .little-menu {
+        display: none;
+    }
+
+    .tablet-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 40%;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+    /* Comienzo de media queries para escritorios */
+@media (min-width: 992px) {
+    .container {
+        grid-template-areas: 
+            "nav organize"
+            "nav main"
+            "footer main";
+    }
+
+    .tablet-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
